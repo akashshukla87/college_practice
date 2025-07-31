@@ -1,10 +1,10 @@
 pipeline {
     agent any
     parameters {
-        string(name:'NAME', defaultValue:'', description: 'Enter your name')
+        string(name:'NAME', defaultValue:'', description: 'Akash')
     }
     stages {
-        stage('Good Morning!!') {
+        stage('How u doin!!') {
             steps {
                 echo "Hello, ${params.NAME}!!"
             }
