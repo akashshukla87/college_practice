@@ -1,30 +1,12 @@
-CODE_CHANGES = true
 pipeline {
     agent any
+    parameters {
+        string(name:'NAME', defaultValue:'', description: 'Enter your name')
+    }
     stages {
-        stage('build') {
-            when {
-                expression {
-                    BRANCH_NAME == 'master' && CODE_CHANGES == true
-                }
-            }
+        stage('Good Morning!!') {
             steps {
-                echo 'building the application...'
-            }
-        }
-        stage('test') {
-            when {
-                expression {
-                    BRANCH_NAME == 'development'
-                }
-            }
-            steps {
-                echo 'testing the application...'
-            }
-        }
-        stage('deploy') {
-            steps {
-                echo 'deploying the application...'
+                echo "Hello, ${params.NAME}!!"
             }
         }
     }
